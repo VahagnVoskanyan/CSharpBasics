@@ -22,11 +22,11 @@ predDelegates.Run();*/
 var expressionTrees = new ExpressionTrees();
 expressionTrees.Run();*/
 
-Console.WriteLine("\n--> Reflection\n");
-Console.WriteLine("\n--> Types\n");
+//Console.WriteLine("\n--> Reflection\n");
+/*Console.WriteLine("\n--> Types\n");
 
 var systemTypeClass = new SystemTypeClass();
-systemTypeClass.Run();
+systemTypeClass.Run();*/
 
 /*Console.WriteLine("\n--> Method Reflection\n");
 
@@ -80,5 +80,8 @@ TPL.Run();*/
 var a = new SemaphoreEx();
 a.Run();*/
 
-Console.WriteLine("\n--> Polymorphism\n");
-Polymorphism.Run();
+/*Console.WriteLine("\n--> Polymorphism\n");
+Polymorphism.Run();*/
+
+Console.WriteLine("\n--> Iterator, Yield\n");
+IteratorYield.Run();
