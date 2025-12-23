@@ -1,4 +1,5 @@
 ﻿using CSharpBasics;
+using CSharpBasics.AsyncOperations;
 using CSharpBasics.DelegateEventLambda;
 using CSharpBasics.LINQ;
 using CSharpBasics.OOP;
@@ -62,6 +63,22 @@ Classes.Run();*/
 
 /*Console.WriteLine("\n--> Interfaces\n");
 Interfaces.Run();*/
+
+//Console.WriteLine("\n--> Asynchronous operations\n");
+/*Console.WriteLine("\n--> Make tea\n");
+await AsyncAwaitTask.MakeTeaAsync();*/
+
+/*Console.WriteLine("\n--> Thread\n");
+await AsyncAwaitTask.ThreadTask();
+
+MasterThreadAndTasks.Run();*/
+
+/*Console.WriteLine("\n--> Task Parallel Library\n");
+TPL.Run();*/
+
+/*Console.WriteLine("\n--> Semaphore\n");
+var a = new SemaphoreEx();
+a.Run();*/
 
 Console.WriteLine("\n--> Polymorphism\n");
 Polymorphism.Run();
