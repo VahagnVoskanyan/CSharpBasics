@@ -1,6 +1,7 @@
 ﻿using CSharpBasics;
 using CSharpBasics.AsyncOperations;
 using CSharpBasics.DelegateEventLambda;
+using CSharpBasics.ExpressionTrees;
 using CSharpBasics.LINQ;
 using CSharpBasics.OOP;
 using CSharpBasics.Reflection;
@@ -17,10 +18,8 @@ simpleDelegates.Run();*/
 var predDelegates = new PredDelegates();
 predDelegates.Run();*/
 
-/*Console.WriteLine("\n--> Expression trees\n");
-
-var expressionTrees = new ExpressionTrees();
-expressionTrees.Run();*/
+Console.WriteLine("\n--> Expression trees\n");
+ExpressionTrees.Run();
 
 //Console.WriteLine("\n--> Reflection\n");
 /*Console.WriteLine("\n--> Types\n");
@@ -83,5 +82,5 @@ a.Run();*/
 /*Console.WriteLine("\n--> Polymorphism\n");
 Polymorphism.Run();*/
 
-Console.WriteLine("\n--> Iterator, Yield\n");
-IteratorYield.Run();
+/*Console.WriteLine("\n--> Iterator, Yield\n");
+IteratorYield.Run();*/

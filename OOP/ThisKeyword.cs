@@ -21,6 +21,25 @@
         }
     }
 
+    // Generic indexer class
+    class GenInd<T>
+    {
+        private T[] arrStor = new T[50];
+
+        public T this[int index]
+        {
+            get
+            {
+                return arrStor[index];
+            }
+
+            set
+            {
+                arrStor[index] = value;
+            }
+        }
+    }
+
     internal class ThisKeyword
     {
         int num1;
@@ -70,7 +89,17 @@
                 Console.WriteLine(s1[i] + " ");
             }
 
+            Console.WriteLine("Generic Indexer");
 
+            var ids = new GenInd<int>();
+
+            ids[0] = 10;
+            ids[1] = 20;
+            
+            var names = new GenInd<string>();
+
+            names[0] = "John";
+            names[1] = "Bob";
         }
     }
 }

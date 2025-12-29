@@ -2,15 +2,21 @@
 
 namespace CSharpBasics.ExpressionTrees
 {
+    // Most usecases
+    // LINQ to SQL / Entity Framework (Database Queries)
+    // Mocking Frameworks
+    // Serialization Libraries
+    // Dynamic Query Building
+
     internal class ExpressionTrees
     {
-        public void Run()
+        public static void Run()
         {
             // Using Lambda Expressions
             Expression<Func<int, bool>> isPositive = num => num > 0;
             Expression<Func<int, int, int>> add = (x, y) => x + y;
 
-            //Building Expression Trees Manually
+            // Building Expression Trees Manually
             ParameterExpression numParam = Expression.Parameter(typeof(int), "num");
             ConstantExpression zero = Expression.Constant(0, typeof(int));
             BinaryExpression greaterThan = Expression.GreaterThan(numParam, zero);
@@ -23,6 +29,48 @@ namespace CSharpBasics.ExpressionTrees
             Console.WriteLine($"Return Type: {add.ReturnType}");
             Console.WriteLine($"Parameters: {string.Join(", ", add.Parameters.Select(p => p.Name))}");
             Console.WriteLine($"Body Node Type: {add.Body.NodeType}");
+            Console.WriteLine();
+
+            Console.WriteLine("--> Using Expression Visitor");
+            var expressionPrinter = new ExpressionPrinter();
+            expressionPrinter.Visit(add.Body);
+            Console.WriteLine();
+            expressionPrinter.Visit(isPositive.Body);
+            Console.WriteLine();
+            expressionPrinter.Visit(isPositiveM.Body);
+        }
+
+    }
+
+    public class ExpressionPrinter : ExpressionVisitor
+    {
+        protected override Expression VisitBinary(BinaryExpression node)
+        {
+            Console.Write("(");
+            Visit(node.Left);
+            Console.Write($" {GetOperatorSymbol(node.NodeType)} ");
+            Visit(node.Right);
+            Console.Write(")");
+            return node;
+        }
+
+        protected override Expression VisitParameter(ParameterExpression node)
+        {
+            Console.Write(node.Name);
+            return node;
+        }
+
+        private string GetOperatorSymbol(ExpressionType type)
+        {
+            switch (type)
+            {
+                case ExpressionType.Add: return "+";
+                case ExpressionType.Subtract: return "-";
+                case ExpressionType.Multiply: return "*";
+                case ExpressionType.Divide: return "/";
+                // Add more cases as needed
+                default: return type.ToString();
+            }
         }
     }
 }
