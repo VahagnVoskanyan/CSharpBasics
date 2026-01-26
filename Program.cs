@@ -18,8 +18,11 @@ simpleDelegates.Run();*/
 var predDelegates = new PredDelegates();
 predDelegates.Run();*/
 
-Console.WriteLine("\n--> Expression trees\n");
-ExpressionTrees.Run();
+/*Console.WriteLine("\n--> Expression trees\n");
+ExpressionTrees.Run();*/
+
+/*Console.WriteLine("\n--> Expression trees Example 1\n");
+PracAppofExTrees.Run();*/
 
 //Console.WriteLine("\n--> Reflection\n");
 /*Console.WriteLine("\n--> Types\n");
@@ -47,11 +50,11 @@ dynamicAssembly.Run();*/
 var attributeReflection = new AttributeReflection();
 attributeReflection.Run();*/
 
-//Console.WriteLine("\n--> LINQ\n");
-/*Console.WriteLine("\n--> Deferred and Immediate execution\n");
+Console.WriteLine("\n--> LINQ\n");
+Console.WriteLine("\n--> Deferred and Immediate execution\n");
 
-var defOp = new DefOp();s
-defOp.Run();*/
+var defOp = new DefOp(); 
+defOp.Run();
 
 /*Console.WriteLine("\n--> 'this' Keyword\n");
 ThisKeyword.Run();

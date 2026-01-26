@@ -8,7 +8,8 @@
 
             // Deferred
             // Can say- query declaration 
-            var selectedPeople = people.Where(s => s.Length == 3).OrderBy(s => s);
+            //var selectedPeople = people.Where(s => s.Length == 3).OrderBy(s => s);
+            var selectedPeople = people.OrderBy(s => s);
 
             // LINQ query executes here not before 
             foreach (string s in selectedPeople)

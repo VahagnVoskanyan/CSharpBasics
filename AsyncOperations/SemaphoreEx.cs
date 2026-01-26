@@ -2,8 +2,8 @@
 {
     public class SemaphoreEx
     {
-        private HttpClient _client = new() { Timeout = TimeSpan.FromSeconds(3) };
-        private SemaphoreSlim _gate = new(50);
+        private readonly HttpClient _client = new() { Timeout = TimeSpan.FromSeconds(3) };
+        private readonly SemaphoreSlim _gate = new(50); // 50 threads max
 
         public void Run()
         {
@@ -28,15 +28,16 @@
                 await _gate.WaitAsync();
 
                 var response = await _client.GetAsync(url);
-
-                // if noe
-                _gate.Release();
-
                 Console.WriteLine(response.StatusCode);
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                // to prevent semaphore exhaustion
+                _gate.Release();
             }
         }
     }

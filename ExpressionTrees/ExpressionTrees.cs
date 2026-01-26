@@ -13,10 +13,10 @@ namespace CSharpBasics.ExpressionTrees
         public static void Run()
         {
             // Using Lambda Expressions
-            Expression<Func<int, bool>> isPositive = num => num > 0;
-            Expression<Func<int, int, int>> add = (x, y) => x + y;
+            Expression<Func<int, bool>> isPositive = num => num > 0; // (ex 1)
+            Expression<Func<int, int, int>> add = (x, y) => x + y; // (ex 2)
 
-            // Building Expression Trees Manually
+            // Building Expression Trees Manually (ex 1)
             ParameterExpression numParam = Expression.Parameter(typeof(int), "num");
             ConstantExpression zero = Expression.Constant(0, typeof(int));
             BinaryExpression greaterThan = Expression.GreaterThan(numParam, zero);
@@ -25,6 +25,7 @@ namespace CSharpBasics.ExpressionTrees
                 new ParameterExpression[] { numParam }
             );
 
+            // (ex 2) 
             Console.WriteLine($"NodeType: {add.NodeType}");
             Console.WriteLine($"Return Type: {add.ReturnType}");
             Console.WriteLine($"Parameters: {string.Join(", ", add.Parameters.Select(p => p.Name))}");
@@ -33,11 +34,11 @@ namespace CSharpBasics.ExpressionTrees
 
             Console.WriteLine("--> Using Expression Visitor");
             var expressionPrinter = new ExpressionPrinter();
-            expressionPrinter.Visit(add.Body);
+            expressionPrinter.Visit(add.Body); // (ex 2)
             Console.WriteLine();
-            expressionPrinter.Visit(isPositive.Body);
+            expressionPrinter.Visit(isPositive.Body); // (ex 1)
             Console.WriteLine();
-            expressionPrinter.Visit(isPositiveM.Body);
+            expressionPrinter.Visit(isPositiveM.Body); // (ex 1)
         }
 
     }
