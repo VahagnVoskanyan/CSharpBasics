@@ -3,7 +3,7 @@
     public class SemaphoreEx
     {
         private readonly HttpClient _client = new() { Timeout = TimeSpan.FromSeconds(3) };
-        private readonly SemaphoreSlim _gate = new(50); // 50 threads max
+        private readonly SemaphoreSlim _gate = new(50, 50); // 50 threads max
 
         public void Run()
         {

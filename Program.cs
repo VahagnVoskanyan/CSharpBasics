@@ -50,11 +50,11 @@ dynamicAssembly.Run();*/
 var attributeReflection = new AttributeReflection();
 attributeReflection.Run();*/
 
-Console.WriteLine("\n--> LINQ\n");
-Console.WriteLine("\n--> Deferred and Immediate execution\n");
+//Console.WriteLine("\n--> LINQ\n");
+/*Console.WriteLine("\n--> Deferred and Immediate execution\n");
 
 var defOp = new DefOp(); 
-defOp.Run();
+defOp.Run();*/
 
 /*Console.WriteLine("\n--> 'this' Keyword\n");
 ThisKeyword.Run();
@@ -71,9 +71,11 @@ Interfaces.Run();*/
 await AsyncAwaitTask.MakeTeaAsync();*/
 
 /*Console.WriteLine("\n--> Thread\n");
-await AsyncAwaitTask.ThreadTask();
+await AsyncAwaitTask.ThreadTask();*/
 
-MasterThreadAndTasks.Run();*/
+//MasterThreadAndTasks.Run();
+
+//MasterThreadAndTasks.Run1();
 
 /*Console.WriteLine("\n--> Task Parallel Library\n");
 TPL.Run();*/
@@ -82,8 +84,15 @@ TPL.Run();*/
 var a = new SemaphoreEx();
 a.Run();*/
 
+Console.WriteLine("\n--> Mutex\n");
+var a = new MutexEx();
+a.Run();
+
 /*Console.WriteLine("\n--> Polymorphism\n");
 Polymorphism.Run();*/
 
 /*Console.WriteLine("\n--> Iterator, Yield\n");
 IteratorYield.Run();*/
+
+/*Console.WriteLine("\n--> Comparison\n");
+Comparison.Run();*/
