@@ -75,7 +75,9 @@ await AsyncAwaitTask.ThreadTask();*/
 
 //MasterThreadAndTasks.Run();
 
-//MasterThreadAndTasks.Run1();
+Console.WriteLine("--> Lock examples");
+var lockEx = new LockEx();
+lockEx.Run();
 
 /*Console.WriteLine("\n--> Task Parallel Library\n");
 TPL.Run();*/
@@ -84,9 +86,9 @@ TPL.Run();*/
 var a = new SemaphoreEx();
 a.Run();*/
 
-Console.WriteLine("\n--> Mutex\n");
+/*Console.WriteLine("\n--> Mutex\n");
 var a = new MutexEx();
-a.Run();
+a.Run();*/
 
 /*Console.WriteLine("\n--> Polymorphism\n");
 Polymorphism.Run();*/

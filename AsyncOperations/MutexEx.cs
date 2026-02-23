@@ -30,12 +30,29 @@
             thread_2.Join();
 
             Console.WriteLine($"Final total values using 'Mutex' is: {totalValues}");
+
+            totalValues = 0;
+            thread_1 = new(Ex3);
+            thread_2 = new(Ex3);
+
+            thread_1.Start();
+            thread_2.Start();
+
+            // blocks the calling thread 
+            thread_1.Join();
+            thread_2.Join();
+
+            Console.WriteLine($"Final total values using 'lock' is: {totalValues}");
         }
 
         readonly string filePath1 = "totalValues1.txt";
         readonly string filePath2 = "totalValues2.txt";
+        readonly string filePath3 = "totalValues3.txt";
         int totalValues = 0;
 
+        private readonly object _LockF = new();
+
+        // Without Mutex
         private void Ex1()
         {
             for (int index = 0; index < 2000; index++)
@@ -100,6 +117,37 @@
                     finally
                     {
                         mutex.ReleaseMutex();
+                    }
+                }
+            }
+        }
+
+        // With lock
+        private void Ex3()
+        {
+            for (int index = 0; index < 2000; index++)
+            {
+                lock (_LockF)
+                {
+                    // read from file
+                    using (var readFileStream =
+                        new FileStream(filePath3, FileMode.OpenOrCreate,
+                                FileAccess.Read, FileShare.ReadWrite))
+                    using (var reader = new StreamReader(readFileStream))
+                    {
+                        string fileContent = reader.ReadToEnd();
+                        totalValues = string.IsNullOrEmpty(fileContent) ?
+                                      0 : int.Parse(fileContent);
+                    }
+
+                    totalValues++;
+
+                    // write to file
+                    using (var writeFileStream = new FileStream(filePath3,
+                              FileMode.OpenOrCreate, FileAccess.Write, FileShare.ReadWrite))
+                    using (var writer = new StreamWriter(writeFileStream))
+                    {
+                        writer.Write(totalValues);
                     }
                 }
             }

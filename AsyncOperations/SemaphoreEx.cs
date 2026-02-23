@@ -23,7 +23,7 @@
             try
             {
                 // if no gate => it will throw exception
-                // because time is out before we even can make the call
+                // because time is out before we even can make the call.
                 // network card can't handle so many requests at once
                 await _gate.WaitAsync();
 
