@@ -1,4 +1,4 @@
-﻿namespace CSharpBasics
+﻿namespace CSharpBasics.Addintional
 {
     internal class Comparison
     {

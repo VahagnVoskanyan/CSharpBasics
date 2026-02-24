@@ -1,4 +1,5 @@
 ﻿using CSharpBasics;
+using CSharpBasics.Addintional;
 using CSharpBasics.AsyncOperations;
 using CSharpBasics.DelegateEventLambda;
 using CSharpBasics.ExpressionTrees;
@@ -75,9 +76,9 @@ await AsyncAwaitTask.ThreadTask();*/
 
 //MasterThreadAndTasks.Run();
 
-Console.WriteLine("--> Lock examples");
+/*Console.WriteLine("\n--> Lock examples\n");
 var lockEx = new LockEx();
-lockEx.Run();
+lockEx.Run();*/
 
 /*Console.WriteLine("\n--> Task Parallel Library\n");
 TPL.Run();*/
@@ -98,3 +99,6 @@ IteratorYield.Run();*/
 
 /*Console.WriteLine("\n--> Comparison\n");
 Comparison.Run();*/
+
+Console.WriteLine("\n--> Bitwise and Bit Shift Operators\n");
+BitShiftOp.Run();

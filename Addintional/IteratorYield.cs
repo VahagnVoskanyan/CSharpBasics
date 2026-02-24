@@ -1,4 +1,4 @@
-﻿namespace CSharpBasics
+﻿namespace CSharpBasics.Addintional
 {
     // yield return - returns an expression at each iteration
     // yield break - terminates the iteration
